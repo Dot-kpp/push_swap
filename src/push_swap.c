@@ -7,7 +7,7 @@ int main (int argc, char **argv) {
     //validate input - Check for dups, check is ints, check spaces?, check size?
 
     //sort
-    if (argc > 1)
+    if (argc >= 2)
     {
 
     }
