@@ -13,7 +13,11 @@ t_bool valid_input (char c){
 
 t_bool no_dubs (char *c)
 {
-	return (False);
+    if(){
+	    return (False);
+        
+    }
+	return (True);
 }
 
 t_bool input_validation(char *argv){
@@ -21,7 +25,6 @@ t_bool input_validation(char *argv){
 
     i = 0;
     while (argv[i]){
-
         if(valid_input(argv[i])){
             return (True);
         }
