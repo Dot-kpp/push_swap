@@ -30,20 +30,3 @@ t_bool input_validation(char *argv){
         i++;
     }
 }
-
-int main(int argc, char **argv){
-    int i;
-	
-	
-	i = 1;	
-	while (i < argc)
-	{
-		if (input_validation(argv[i]))
-		{
-			printf(" true ");
-		}
-        else 
-			printf(" false ");
-        i++;
-	}
-}
