@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int main (int argc, char **argv) {
 
@@ -6,13 +6,15 @@ int main (int argc, char **argv) {
     
     //validate input - Check for dups, check is ints, check spaces?, check size?
 
-    //sort
-    if (argc >= 2)
-    {
+    //conversions (char to int)
 
-    }
+    //swap functions
+
+    // check sort
 
     //things to free:
     //output = ??
-    
+
+
+    return (0);
 }

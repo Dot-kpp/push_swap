@@ -8,17 +8,23 @@ t_bool valid_input (char c){
 }
 
 // check condition for int max
+
 // check doublon
+
+t_bool no_dubs (char *c)
+{
+	return (False);
+}
 
 t_bool input_validation(char *argv){
     int i;
 
     i = 0;
     while (argv[i]){
-        if(argv[i] > 2147483647)
-            return(False);
-        else if(valid_input(argv[i]))
-            return(True);
+
+        if(valid_input(argv[i])){
+            return (True);
+        }
         else
             return(False);    
         i++;
