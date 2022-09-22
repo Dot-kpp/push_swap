@@ -10,7 +10,7 @@ t_bool valid_input (char c){
 // check condition for int max
 
 // check doublon
-
+/*
 t_bool no_dubs (char *c)
 {
     if(){
@@ -19,6 +19,7 @@ t_bool no_dubs (char *c)
     }
 	return (True);
 }
+*/
 
 t_bool input_validation(char *argv){
     int i;
