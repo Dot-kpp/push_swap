@@ -1,23 +1,43 @@
 #include "../includes/push_swap.h"
 
-int check_input(char c){
-    if(!(c >= 48 && c <= 57)){
-        return (0);
+t_bool valid_input (char c){
+    if ((c >= 48 && c <= 57) || c == ' ' || c == '-' || c == '+')
+        return (True);
+    else
+        return(False);
+}
+
+// check condition for int max
+// check doublon
+
+t_bool input_validation(char *argv){
+    int i;
+
+    i = 0;
+    while (argv[i]){
+        if(argv[i] > 2147483647)
+            return(False);
+        else if(valid_input(argv[i]))
+            return(True);
+        else
+            return(False);    
+        i++;
     }
-    return(1);
 }
 
 int main(int argc, char **argv){
     int i;
-    int j;
-
-    i = 1;
-    j = 0;
-    while (argc >= 2){
-        if(argv[i][j]){
-        check_input(argv[i][j]);
-        printf(" argv [%d][%d]", i, j);
-        }
-    }
-    return(0);
+	
+	
+	i = 1;	
+	while (i < argc)
+	{
+		if (input_validation(argv[i]))
+		{
+			printf(" true ");
+		}
+        else 
+			printf(" false ");
+        i++;
+	}
 }
