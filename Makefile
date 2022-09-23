@@ -5,8 +5,7 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra -o push_swap
 
-SRCS = 	src/checker.c src/conversions.c src/push_swap.c src/sw_functions.c
-
+SRCS = 	src/*.c 
 BONUSSRCS = 
 
 BONUSOBJ = $(BONUSSRCS:%c=%o)
@@ -29,7 +28,7 @@ bonus: $(OBJ) $(BONUSOBJ)
 	@$(CC) $(CFLAGS) $(NAME)
 
 clean:
-	@rm -f $(OBJ) $(BONUSOBJ)
+	@rm -rf $(OBJ) $(BONUSOBJ)
 
 fclean: clean
 	@rm -rf $(NAME) *.out *.exe
