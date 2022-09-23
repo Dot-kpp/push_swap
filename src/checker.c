@@ -10,18 +10,22 @@ t_bool valid_input (char c){
 // check condition for int max
 
 // check doublon
-/*
-t_bool no_dubs (char *c)
+
+t_bool dubs (char **argv)
 {
-    if(){
-	    return (False);
+    int i;
+    int j;
+
+    i = 0;
+    while (argv[i])
+    {
         
     }
-	return (True);
 }
-*/
+
 
 t_bool input_validation(char *argv){
+    
     int i;
 
     i = 0;

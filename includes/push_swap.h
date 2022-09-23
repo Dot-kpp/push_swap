@@ -8,6 +8,14 @@
 #include <stdbool.h>
 #include <limits.h>
 
+typedef struct s_stacks
+{
+    int index;
+    int *stack_a;
+
+    int *stack_b;
+
+}   t_stacks;
 
 typedef enum e_bool
 {
