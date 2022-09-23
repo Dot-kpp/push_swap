@@ -1,6 +1,5 @@
 #include "../includes/push_swap.h"
 
-int main (int argc, char **argv) {
 
     //Take input
     
@@ -30,6 +29,5 @@ int main(int argc, char **argv){
 			printf(" false ");
         i++;
 	}
-}
     return (0);
 }

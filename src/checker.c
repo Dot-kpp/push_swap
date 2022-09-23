@@ -33,4 +33,5 @@ t_bool input_validation(char *argv){
             return(False);    
         i++;
     }
+    return (0);
 }
