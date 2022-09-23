@@ -18,15 +18,13 @@ int main(int argc, char **argv){
     int i;
 	
 	
-	i = 1;	
+	i = 1;
+    if (argc < 2)
+	    exit (0);
 	while (i < argc)
 	{
-		if (input_validation(argv[i]))
-		{
-			printf(" true ");
-		}
-        else 
-			printf(" false ");
+		if (!input_validation(argv[i]))
+			write (2, "Error\n", 6);
         i++;
 	}
     return (0);

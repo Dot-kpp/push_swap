@@ -16,11 +16,13 @@ OBJ = $(SRCS:%c=%o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	@echo "Your shit is compiling"
+	@echo ""
 	@ar rcs $(NAME) $(OBJ)
 	@echo ""
-	@echo "Your shit is compiling"
 	@$(CC) $(CFLAGS) $(NAME)
 	@echo "Your shit is compiled"
+	@echo ""
 
 
 bonus: $(OBJ) $(BONUSOBJ)
