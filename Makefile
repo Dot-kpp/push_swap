@@ -5,7 +5,7 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra -o push_swap
 
-SRCS = 	src/*.c 
+SRCS = 	src/checker.c src/conversions.c src/push_swap.c src/sw_functions.c 
 BONUSSRCS = 
 
 BONUSOBJ = $(BONUSSRCS:%c=%o)
