@@ -11,17 +11,29 @@ t_bool valid_input (char c){
 
 // check doublon
 
-t_bool dubs (char **argv)
+/*
+t_bool dubs (char *argv)
 {
     int i;
     int j;
 
     i = 0;
     while (argv[i])
-    {
-        
-    }
+	{
+		j = i;
+		while (argv[j])
+		{
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+            {
+                j++;
+				return (True);
+            }
+		}
+        i++;
+	}
+	return (False);
 }
+*/
 
 
 t_bool input_validation(char *argv){
@@ -31,7 +43,7 @@ t_bool input_validation(char *argv){
     i = 0;
     while (argv[i]){
         if(valid_input(argv[i])){
-            return (True);
+                return (True);
         }
         else
             return(False);    

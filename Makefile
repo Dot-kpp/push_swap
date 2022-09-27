@@ -6,9 +6,6 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra -o push_swap
 
 SRCS = 	src/checker.c src/conversions.c src/push_swap.c src/sw_functions.c 
-BONUSSRCS = 
-
-BONUSOBJ = $(BONUSSRCS:%c=%o)
 
 OBJ = $(SRCS:%c=%o)
 
@@ -21,19 +18,17 @@ $(NAME): $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
 	@echo ""
 	@$(CC) $(CFLAGS) $(NAME)
+	@mkdir -p objs && mv ./src/*.o ./objs/
+	@mkdir -p bin && mv push_swap ./bin && mv push_swap.a ./bin
 	@echo "Your shit is compiled"
 	@echo ""
 
 
-bonus: $(OBJ) $(BONUSOBJ)
-	@ar rcs $(NAME) $(OBJ) $(BONUSOBJ)
-	@$(CC) $(CFLAGS) $(NAME)
-
 clean:
-	@rm -rf $(OBJ) $(BONUSOBJ)
+	@rm -rf $(OBJ)
 
 fclean: clean
-	@rm -rf $(NAME) *.out *.exe
+	@rm -rf $(NAME) *.out *.exe ./objs ./bin
 	@echo ""
 	@echo "Your shit is clean af!"
 	@echo ""
