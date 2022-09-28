@@ -23,7 +23,8 @@ typedef enum e_bool
     False,
 }   t_bool;
 
-t_bool input_validation(char *argv);
+int	    ft_atoi(const char *str);
+t_bool  input_validation(char *argv);
 
 
-#endif
+#endif  

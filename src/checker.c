@@ -1,4 +1,5 @@
 #include "../includes/push_swap.h"
+#include "../libft/libft.h"
 
 t_bool valid_input (char c){
     if ((c >= 48 && c <= 57) || c == ' ' || c == '-' || c == '+')
@@ -11,8 +12,9 @@ t_bool valid_input (char c){
 
 // check doublon
 
-/*
-t_bool dubs (char *argv)
+
+
+t_bool dubs (char **argv)
 {
     int i;
     int j;
@@ -23,30 +25,26 @@ t_bool dubs (char *argv)
 		j = i;
 		while (argv[j])
 		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+			if (ft_atoi(argv[i]) == ft_atoi(argv[i + 1]))
             {
-                j++;
-				return (True);
+				return (False);
             }
+            j++;
 		}
         i++;
 	}
-	return (False);
+	return (True);
 }
-*/
 
 
-t_bool input_validation(char *argv){
-    
-    int i;
-
-    i = 0;
-    while (argv[i]){
-        if(valid_input(argv[i])){
-                return (True);
-        }
+t_bool input_validation(char **argv){
+        
+        if(valid_input(argv[i]))
+            return (True);
+        if(dubs(argv))
+            return (True);
         else
-            return(False);    
+            return(False);
         i++;
     }
     return (0);
