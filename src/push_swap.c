@@ -13,27 +13,15 @@
 
 int main(int argc, char **argv)
 {
-
-    /*
     char **temp;    
 	
     if (argc < 2)
 	    exit (0);
     if (argc == 2)
-        temp = ft_split(argv[1], " ");
+        temp = ft_split(argv[1], ' ');
     else 
         temp = &argv[1];
-    */
+    input_validation(temp);
 
-   int i;
-
-   i = 0;
-   
-	while (i < argc)
-	{
-		if (!input_validation(argv[i]))
-			write (2, "Error\n", 6);
-        i++;
-	}
     return (0);
 }

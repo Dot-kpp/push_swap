@@ -1,27 +1,27 @@
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
 
-t_bool len_valid(char *argv)
-{
-    if (argv[0] == '-')
-    {
-        if (ft_strlen(argv) > 11)
-			return (False);
-		else if (argv < INT_MAX)
-			return (False);
-		else if (ft_strlen(argv) < 11)
-			return (True);
-    }
-    else
-    {
-        if (ft_strlen(argv) > 10)
-			return (False);
-		else if (argv < INT_MAX)
-			return (False);
-		else if (ft_strlen(argv) < 10)
-			return (True);
-    }
-}
+// t_bool len_valid(char *argv)
+// {
+//     if (argv[0] == '-')
+//     {
+//         if (ft_strlen(argv) > 11)
+// 			return (False);
+// 		else if (argv < INT_MAX)
+// 			return (False);
+// 		else if (ft_strlen(argv) < 11)
+// 			return (True);
+//     }
+//     else
+//     {
+//         if (ft_strlen(argv) > 10)
+// 			return (False);
+// 		else if (argv < INT_MAX)
+// 			return (False);
+// 		else if (ft_strlen(argv) < 10)
+// 			return (True);
+//     }
+// }
 
 t_bool input_valid_num (char c){
     if ((c >= 48 && c <= 57) || c == ' ' || c == '-' || c == '+')
@@ -55,14 +55,14 @@ t_bool dubs (char **argv)
 
 void input_validation(char **argv){
         
-        if(!input__valid_num(argv[i]))
-            write (2, "Error\n", 6);
-            exit;
+        // if(!input_valid_num(argv))
+        //     write (2, "Error\n", 6);
+        //     exit;
         if(dubs(argv))
+        {
             write (2, "Error\n", 6);
-            exit;
+            exit (0);
+        }
         else
-            exit;
-        i++;
-    return (0);
+            exit (0);
 }
