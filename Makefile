@@ -11,9 +11,6 @@ OBJ = $(SRCS:%c=%o)
 
 LIBFT = ./libft/libft.a
 
-
-all: $(NAME)
-
 $(NAME): $(OBJ)
 	@echo "Your shit is compiling"
 	@echo ""
@@ -30,7 +27,7 @@ clean:
 	@rm -rf $(OBJ)
 
 fclean: clean
-	@rm -rf $(NAME) *.out *.exe ./objs ./bin
+	@rm -rf $(NAME) *.out *.exe ./objs ./bin ./libft/*.o 
 	@echo ""
 	@echo "Your shit is clean af!"
 	@echo ""

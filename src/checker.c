@@ -1,6 +1,8 @@
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
 
+
+/*
 t_bool len_valid(char *argv)
 {
     if (argv[0] == "-")
@@ -66,3 +68,4 @@ void input_validation(char **argv){
         i++;
     return (0);
 }
+*/
