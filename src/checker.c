@@ -1,15 +1,13 @@
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
 
-
-/*
 t_bool len_valid(char *argv)
 {
-    if (argv[0] == "-")
+    if (argv[0] == '-')
     {
         if (ft_strlen(argv) > 11)
 			return (False);
-		else if (argv <= "2147483648"))
+		else if (argv < INT_MAX)
 			return (False);
 		else if (ft_strlen(argv) < 11)
 			return (True);
@@ -18,7 +16,7 @@ t_bool len_valid(char *argv)
     {
         if (ft_strlen(argv) > 10)
 			return (False);
-		else if (argv <= "2147483647")
+		else if (argv < INT_MAX)
 			return (False);
 		else if (ft_strlen(argv) < 10)
 			return (True);
@@ -68,4 +66,3 @@ void input_validation(char **argv){
         i++;
     return (0);
 }
-*/
