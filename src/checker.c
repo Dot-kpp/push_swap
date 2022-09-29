@@ -1,18 +1,34 @@
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
 
-t_bool valid_input (char c){
+t_bool len_valid(char *argv)
+{
+    if (argv[0] == "-")
+    {
+        if (ft_strlen(argv) > 11)
+			return (False);
+		else if (argv <= "2147483648"))
+			return (False);
+		else if (ft_strlen(argv) < 11)
+			return (True);
+    }
+    else
+    {
+        if (ft_strlen(argv) > 10)
+			return (False);
+		else if (argv <= "2147483647")
+			return (False);
+		else if (ft_strlen(argv) < 10)
+			return (True);
+    }
+}
+
+t_bool input_valid_num (char c){
     if ((c >= 48 && c <= 57) || c == ' ' || c == '-' || c == '+')
         return (True);
     else
         return(False);
 }
-
-// check condition for int max
-
-// check doublon
-
-
 
 t_bool dubs (char **argv)
 {
@@ -37,15 +53,16 @@ t_bool dubs (char **argv)
 }
 
 
-t_bool input_validation(char **argv){
+void input_validation(char **argv){
         
-        if(valid_input(argv[i]))
-            return (True);
+        if(!input__valid_num(argv[i]))
+            write (2, "Error\n", 6);
+            exit;
         if(dubs(argv))
-            return (True);
+            write (2, "Error\n", 6);
+            exit;
         else
-            return(False);
+            exit;
         i++;
-    }
     return (0);
 }

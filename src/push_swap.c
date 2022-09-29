@@ -1,7 +1,4 @@
 #include "../includes/push_swap.h"
-
-
-    //Take input
     
     //validate input - Check for dups, check is ints, check spaces?, check size?
 
@@ -14,13 +11,24 @@
     //things to free:
     //output = ??
 
-int main(int argc, char **argv){
-    int i;
+int main(int argc, char **argv)
+{
+
+    /*
+    char **input;    
 	
-	
-	i = 1;
     if (argc < 2)
 	    exit (0);
+    if (argc == 2)
+        input = ft_split(argv[1], " ");
+    else 
+        input = &argv[1];
+    */
+
+   int i;
+
+   i = 0;
+   
 	while (i < argc)
 	{
 		if (!input_validation(argv[i]))
