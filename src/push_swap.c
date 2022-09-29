@@ -15,14 +15,14 @@ int main(int argc, char **argv)
 {
 
     /*
-    char **input;    
+    char **temp;    
 	
     if (argc < 2)
 	    exit (0);
     if (argc == 2)
-        input = ft_split(argv[1], " ");
+        temp = ft_split(argv[1], " ");
     else 
-        input = &argv[1];
+        temp = &argv[1];
     */
 
    int i;
