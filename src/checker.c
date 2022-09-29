@@ -23,12 +23,26 @@
 //     }
 // }
 
-t_bool input_valid_num (char c){
-    if ((c >= 48 && c <= 57) || c == ' ' || c == '-' || c == '+')
-        return (True);
-    else
-        return(False);
+t_bool input_valid_num (char **c){
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    while (c[i])
+    {
+        if (ft_isdigit(c[i][j]))
+        {
+                j++;
+                return (True);
+        }
+        else
+            return(False);
+        i++;
+    }
+    return (0);
 }
+
 
 t_bool dubs (char **argv)
 {
@@ -55,9 +69,11 @@ t_bool dubs (char **argv)
 
 void input_validation(char **argv){
         
-        // if(!input_valid_num(argv))
-        //     write (2, "Error\n", 6);
-        //     exit;
+        if(input_valid_num(argv))
+        {
+            write (2, "Error\n", 6);
+            exit (0);
+        }
         if(dubs(argv))
         {
             write (2, "Error\n", 6);
