@@ -16,7 +16,7 @@ $(NAME): $(OBJ)
 	@echo ""
 	@ar rcs $(NAME) $(OBJ)
 	@echo ""
-	@$(CC) $(CFLAGS) $(NAME) $(LIBFT)
+	@$(CC) $(CFLAGS) $(LIBFT) $(NAME) 
 	@mkdir -p objs && mv ./src/*.o ./objs/
 	@mkdir -p bin && mv push_swap.a ./bin
 	@echo "Your shit is compiled"

@@ -31,16 +31,14 @@ t_bool input_valid_num (char **c){
     j = 0;
     while (c[i])
     {
-        if (ft_isdigit(c[i][j]))
+        while(ft_isdigit(c[i][j]))
         {
-                j++;
                 return (True);
+                j++;
         }
-        else
-            return(False);
         i++;
     }
-    return (0);
+    
 }
 
 
@@ -69,7 +67,7 @@ t_bool dubs (char **argv)
 
 void input_validation(char **argv){
         
-        if(input_valid_num(argv))
+        if(!input_valid_num(argv))
         {
             write (2, "Error\n", 6);
             exit (0);

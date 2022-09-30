@@ -22,8 +22,6 @@ typedef enum e_bool
     False,
 }   t_bool;
 
-int	    ft_atoi(const char *str);
-char	**ft_split(char const *s, char c);
 void  input_validation(char **argv);
 
 
