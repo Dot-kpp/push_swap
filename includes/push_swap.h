@@ -1,7 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "../libft/libft.h"
+#include "../libft/headers/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -21,6 +21,7 @@ typedef enum e_bool
     False,
 }   t_bool;
 
+void no_input_error(void);
 t_data	*get_data(void);
 void	init_data();
 void  input_validation(char **argv);

@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 	
     if (argc < 2)
     {
-        printf("fuck");
+        no_input_error();
 		exit (0);
     }
 	// if (argc == 2)
