@@ -37,7 +37,7 @@ void input_valid_num (char **argv){
                 j++;
             if(ft_isdigit(argv[i][j]) == 0)
             {
-                write (2, "Error\n", 6);
+                invalid_list_error();
                 exit (0);
             }
             else 
@@ -45,7 +45,6 @@ void input_valid_num (char **argv){
         }
         i++;
     }
-    printf("its numbers");
 }
 
 
@@ -62,7 +61,7 @@ void dubs (char **argv)
 		{
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
             {
-                write (2, "Error\n", 6);
+                dubs_error();
                 exit (0);
             }
             j++;
@@ -76,7 +75,8 @@ void dubs (char **argv)
 void input_validation(char **argv)
 {
     input_valid_num(argv);
-    dubs(argv);
+    // dubs(argv);
+    // len_valid(argv);
 
 }
 
