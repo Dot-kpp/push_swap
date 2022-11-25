@@ -24,7 +24,8 @@ void    invalid_list_error(void);
 t_data	*get_data(void);
 void	init_data();
 void    input_validation(char **argv);
-void	check_quoted_args(char **argv);
+void	quoted_args(char **argv);
+void	no_quote_args(int argc, char **argv);
 
 
 #endif  

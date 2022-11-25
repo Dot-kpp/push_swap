@@ -71,27 +71,34 @@ void dubs (char **argv)
     printf("no dubs");
 }
 
-
-void input_validation(char **argv)
-{
-    input_valid_num(argv);
-    // dubs(argv);
-    // len_valid(argv);
-
-}
-
-void	check_quoted_args(char **argv)
+void	quoted_args(char **argv)
 {
     t_data *data;
-	char	**quoted_args;
 
     data = get_data();
-	quoted_args = ft_split(argv[1], ' ');
-	if (quoted_args[0] == NULL)
-	{
-		exit(0);
-	}
-	input_valid_num(quoted_args);
+    char	**list;
+	int		listlen;
+	int		i;
+
+	listlen = 0;
+	i = 0;
+	list = ft_split(av[1], ' ');
+    while (list[listlen])
+		listlen++;
+	data->stack_a = ft_calloc(sizeof(t_data), 1);
+    while (list[i])
+    {
+        
+    }
+	
+}
+void	no_quote_args(int argc, char **argv)
+{
+    (void) argc;
+    (void) argv;
+    t_data *data;
+
+    data = get_data();
 	data->stack_a = ft_calloc(sizeof(t_data), 1);
 
 }
