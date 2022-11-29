@@ -12,11 +12,11 @@
     //output = ??
 
 
-
 int main(int argc, char **argv)
 {	
 
 	init_data(argc, argv);
+    sort_small_list();
 
     return (0);
 }

@@ -5,7 +5,7 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRCS = 	./src/checker.c ./src/conversions.c ./src/push_swap.c ./src/sw_functions.c ./src/init_data.c ./src/error.c
+SRCS = 	./src/checker.c ./src/conversions.c ./src/push_swap.c ./src/sw_functions.c ./src/init_data.c ./src/error.c ./src/sort_small_list.c
 
 OBJ = $(SRCS:%c=%o)
 
