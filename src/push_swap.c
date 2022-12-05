@@ -14,9 +14,10 @@
 
 int main(int argc, char **argv)
 {	
-
-	init_data(argc, argv);
-    sort_small_list();
+    t_data *data;
+    data = get_data();
+	init_data(argc, argv, data);
+    sort_small_list(data);
 
     return (0);
 }

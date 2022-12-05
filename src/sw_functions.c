@@ -1,46 +1,105 @@
 #include "../includes/push_swap.h"
 
-/*
+int	sa(t_data *data, int i)
+{
+	if (data->stack_a_count <= 1)
+		return (0);
+	data->stack_a_tmp = data->stack_a[0];
+	data->stack_a[0] = data->stack_a[1];
+	data->stack_a[1] = data->stack_a_tmp;
+	if (i == 1)
+		ft_printf("sa\n");
+	return (0);
+}
 
-The goal is to sort in ascending order numbers into stack a. To do so you have the
-following operations at your disposal:
+int	sb(t_data *data, int i)
+{
+	if (data->stack_a_count <= 1)
+		return (0);
+	data->stack_b_tmp = data->stack_b[0];
+	data->stack_b[0] = data->stack_b[1];
+	data->stack_b[1] = data->stack_b_tmp;
+	if (i == 1)
+		ft_printf("sb\n");
+	return (0);
+}
 
-- sa (swap a): Swap the first 2 elements at the top of stack a.
+int	ss(t_data *data, int i)
+{
+	if (data->stack_a_count <= 1 || data->stack_a_count <= 1)
+		return (0);
+	sa(data, 0);
+	sb(data, 0);
+	if (i == 1)
+		ft_printf("ss\n");
+	return (0);
+}
 
-- Do nothing if there is only one or no elements.
+int	ra(t_data *data, int c)
+{
+	int	i;
 
-- sb (swap b): Swap the first 2 elements at the top of stack b.
+	i = 0;
+	if (data->stack_a_count <= 2)
+		return (0);
+	data->stack_b_tmp = data->stack_a[i];
+	while (i < data->stack_a_count)
+	{
+		data->stack_a[i] = data->stack_a[i + 1];
+		i++;
+	}
+	data->stack_a[i - 1] = data->stack_b_tmp;
+	if (c == 1)
+		printf("ra\n");
+	return (0);
+}
 
-- Do nothing if there is only one or no elements.
+// int	rb(t_data *data, int c)
+// {
+// 	int	i;
 
-- ss : sa and sb at the same time.
+// 	i = 0;
+// 	if (lists->list_b.nbargs <= 2)
+// 		return (0);
+// 	lists->list_b.temp = lists->list_b.list[i];
+// 	while (i < lists->list_b.nbargs)
+// 	{
+// 		lists->list_b.list[i] = lists->list_b.list[i + 1];
+// 		i++;
+// 	}
+// 	lists->list_b.list[i - 1] = lists->list_b.temp;
+// 	if (c == 1)
+// 		printf("rb\n");
+// 	return (0);
+// }
 
-- pa (push a): Take the first element at the top of b and put it at the top of a.
+// int	rr(t_data *data, int c)
+// {
+// 	if (lists->list_a.nbargs <= 2 || lists->list_b.nbargs <= 2)
+// 		return (0);
+// 	ra(lists, 0);
+// 	rb(lists, 0);
+// 	if (c == 1)
+// 		printf("rr\n");
+// 	return (0);
+// }
 
-- Do nothing if b is empty.
+int	rra(t_data *data, int c)
+{
+	int	i;
 
-- pb (push b): Take the first element at the top of a and put it at the top of b.
+	if (data->stack_a_count <= 2)
+		return (0);
+	i = data->stack_a_count - 1;
+	data->stack_a_tmp = data->stack_a[i];
+	while (i > 0)
+	{
+		data->stack_a[i] = data->stack_a[i - 1];
+		i--;
+	}
+	data->stack_a[i] = data->stack_a_tmp;
+	if (c == 1)
+		printf("rra\n");
+	return (0);
+}
 
-- Do nothing if a is empty.
-
-- ra (rotate a): Shift up all elements of stack a by 1.
-
-- The first element becomes the last one.
-
-- rb (rotate b): Shift up all elements of stack b by 1.
-
-- The first element becomes the last one.
-
-- rr : ra and rb at the same time.
-
-- rra (reverse rotate a): Shift down all elements of stack a by 1.
-
-- The last element becomes the first one.
-
-- rrb (reverse rotate b): Shift down all elements of stack b by 1.
-
-- The last element becomes the first one.
-
-- rrr : rra and rrb at the same time.
-
-*/

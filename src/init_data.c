@@ -10,31 +10,35 @@ t_data	*get_data(void)
 	return (data);
 }
 
-void	init_data(int argc, char **argv)
+void parsing(int argc, char **argv, t_data *data)
 {
-	t_data	*data;
-	data = get_data();
-
-	data->stack_a_count = 0;
-	data->stack_a_smallest = INT_MIN;
-	data->stack_a_largest = INT_MAX;
-	data->stack_a = NULL;
-	data->stack_b = NULL;
 	if (argc == 1)
         no_input_error();
 	if (argc == 2)
-		quoted_args(argv);
+	{
+		quoted_args(argv, data);
+	}
 	else if (argc > 2)
-		no_quote_args(argc, argv);
-	smallest_largest();
+	{
+		no_quote_args(argc, argv, data);
+	}
+	smallest_largest(data);
 }
 
-int	smallest_largest()
+void	init_data(int argc, char **argv, t_data *data)
 {
-	t_data *data;
+	data->stack_a_count = 0;
+	data->stack_a_smallest = INT_MAX;
+	data->stack_a_largest = INT_MIN;
+	data->stack_a = NULL;
+	data->stack_b = NULL;
+	parsing(argc, argv, data);
+}
+
+int	smallest_largest(t_data *data)
+{
 	int	i;
 
-	data = get_data();
 	i = 0;
 	while (i < data->stack_a_count)
 	{

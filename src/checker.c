@@ -104,11 +104,8 @@ int dubs (t_data *data)
 	return (0);
 }
 
-void	quoted_args(char **argv)
+void	quoted_args(char **argv, t_data *data)
 {
-    t_data *data;
-
-    data = get_data();
     char	**list;
 	int		listlen;
 	int		i;
@@ -212,13 +209,11 @@ int	input_valid_num_no_quotes(t_data *data, char **argv, int i)
 	return (0);
 }
 
-int	no_quote_args(int argc, char **argv)
+int	no_quote_args(int argc, char **argv, t_data *data)
 {
-    t_data *data;
 	int	i;
 
 	i = 1;
-    data = get_data();
 	data->stack_a = ft_calloc((argc - 1), sizeof(int *));
 	if (!data->stack_a)
 		return (1);

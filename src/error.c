@@ -30,3 +30,9 @@ void invalid_list_error(void)
     ft_printf("\n Error: Invalid characters in the list provided.\n");
     exit(0);
 }
+
+void already_sorted(void)
+{
+    ft_printf("\n Error: List already sorted\n");
+	exit (0);
+}
