@@ -23,6 +23,7 @@ void parsing(int argc, char **argv, t_data *data)
 		no_quote_args(argc, argv, data);
 	}
 	smallest_largest(data);
+	smallest_largest(data);
 }
 
 void	init_data(int argc, char **argv, t_data *data)

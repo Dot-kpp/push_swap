@@ -31,13 +31,14 @@ void	list_of_two(t_data *data)
 
 int list_of_three(t_data *data)
 {
-	if (data->stack_a[0] == data->stack_a_largest)
-		ra(data, 1);
-	else if (data->stack_a[1] == data->stack_a_largest)
-		rra(data, 1);
-	
-	else if (check_if_sorted(data) == 1)
-		sa(data, 1);
+	printf("%d\n%d\n%d\n", data->stack_a[0], data->stack_a[1], data->stack_a[2]);
+		if (data->stack_a[0] == data->stack_a_largest)
+			ra(data, 1);
+		else if (data->stack_a[1] == data->stack_a_largest)	
+			rra(data, 1);
+		if (check_if_sorted(data) == 1)
+			list_of_two(data);
+	printf("%d\n%d\n%d\n", data->stack_a[0], data->stack_a[1], data->stack_a[2]);
 	return (0);
 }
 
@@ -64,7 +65,7 @@ int sort_small_list(t_data *data)
 	{
         list_of_two(data);
 	}
-	if (data->stack_a_count == 3)
+	else if (data->stack_a_count == 3)
 	{
 		list_of_three(data);
 		free(data->stack_a);
