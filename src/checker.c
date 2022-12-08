@@ -128,9 +128,6 @@ void	quoted_args(char **argv, t_data *data)
 }
 
 
-
-//no args
-
 void    keep_check_no_quotes(t_data *data, int j, int *list)
 {
 	int	i;

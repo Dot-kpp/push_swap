@@ -29,6 +29,7 @@ void parsing(int argc, char **argv, t_data *data)
 void	init_data(int argc, char **argv, t_data *data)
 {
 	data->stack_a_count = 0;
+	data->stack_b_count = 0;
 	data->stack_a_smallest = INT_MAX;
 	data->stack_a_largest = INT_MIN;
 	data->stack_a = NULL;
@@ -51,3 +52,4 @@ int	smallest_largest(t_data *data)
 	}
 	return (0);
 }
+

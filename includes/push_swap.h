@@ -17,6 +17,7 @@ typedef struct s_data
     int     stack_a_largest;
     int     stack_a_culprit;
     int     *stack_b;
+    int     stack_b_count;
     int     stack_b_tmp;
     char	*errorlog;
 	int		err_no;
