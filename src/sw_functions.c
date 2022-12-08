@@ -77,8 +77,8 @@ int	rr(t_data *data, int c)
 {
 	if (data->stack_a_count <= 2 || data->stack_b_count <= 2)
 		return (0);
-	ra(lists, 0);
-	rb(lists, 0);
+	ra(data, 0);
+	rb(data, 0);
 	if (c == 1)
 		printf("rr\n");
 	return (0);
@@ -107,15 +107,47 @@ int	rra(t_data *data, int c)
 
 
 //functions to test...
-pa
-int pa(t_data *data, int c)
+int    pa(t_data *data)
 {
-	
+    int        i;
+
+    if (data->stack_a_count == 0)
+        return (0);
+    if (data->stack_a_count != 0)
+    {
+        i = data->stack_a_count + 1;
+        while (--i)
+            data->stack_a[i] = data->stack_a[i - 1];
+    }
+    data->stack_a[0] = data->stack_b[0];
+    i = -1;
+    while (++i < data->stack_b_count - 1)
+        data->stack_b[i] = data->stack_b[i + 1];
+    data->stack_a_count += 1;
+    data->stack_b_count -= 1;
+    printf("pa\n");
+    return (0);
 }
-pb 
-int pb(t_data *data, int c)
+int pb(t_data *data)
 {
-	
+    int        i;
+
+    if (data->stack_a_count == 0)
+        return (0);
+    if (data->stack_b_count != 0)
+    {
+        i = data->stack_b_count + 1;
+        while (--i)
+            data->stack_b[i] = data->stack_b[i - 1];
+    }
+    data->stack_b[0] = data->stack_a[0];
+    i = -1;
+    while (++i < data->stack_b_count - 1)
+        data->stack_a[i] = data->stack_a[i + 1];
+    data->stack_a_count -= 1;
+    data->stack_b_count += 1;
+    printf("pb\n");
+    return (0);
 }
 
 
@@ -125,7 +157,7 @@ int	rrr(t_data *data, int c)
 		return (0);
 	rra(data, 1);
 	rrb(data, 1);
-	if (c == i)
+	if (c == 1)
 		printf("rrr\n");
 	return(0);
 

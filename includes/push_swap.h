@@ -48,5 +48,11 @@ int	sb(t_data *data, int i);
 int	ss(t_data *data, int i);
 int	rra(t_data *data, int c);
 int	ra(t_data *data, int c);
+int	rb(t_data *data, int c);
+int	rr(t_data *data, int c);
+int	rrr(t_data *data, int c);
+int	rrb(t_data *data, int c);
+int pa(t_data *data);
+int pb(t_data *data);
 
 #endif  
