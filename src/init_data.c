@@ -32,8 +32,8 @@ void	init_data(int argc, char **argv, t_data *data)
 	data->stack_b_count = 0;
 	data->stack_a_smallest = INT_MAX;
 	data->stack_a_largest = INT_MIN;
-	data->stack_a = NULL;
-	data->stack_b = NULL;
+	// data->stack_a = NULL;
+	// data->stack_b = NULL;
 	parsing(argc, argv, data);
 }
 
@@ -53,3 +53,12 @@ int	smallest_largest(t_data *data)
 	return (0);
 }
 
+int init_small(t_data *data)
+{
+	data->stack_b = ft_calloc(data->stack_a_count, sizeof(int));
+		if (!data->stack_b)
+			return (1);
+	data->stack_a_smallest = INT_MAX;
+	smallest_largest(data);
+	return(0);
+}

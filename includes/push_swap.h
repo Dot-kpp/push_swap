@@ -36,6 +36,7 @@ void	init_data();
 int	    smallest_largest();
 void	quoted_args(char **argv, t_data *data);
 int	    no_quote_args(int argc, char **argv, t_data *data);
+int     init_small(t_data *data);
 
 //
 int sort_small_list(t_data *data);
@@ -53,6 +54,6 @@ int	rr(t_data *data, int c);
 int	rrr(t_data *data, int c);
 int	rrb(t_data *data, int c);
 int pa(t_data *data);
-int pb(t_data *data);
+int pb(t_data *data, int i);
 
 #endif  

@@ -103,54 +103,6 @@ int	rra(t_data *data, int c)
 	return (0);
 }
 
-
-
-
-//functions to test...
-int    pa(t_data *data)
-{
-    int        i;
-
-    if (data->stack_a_count == 0)
-        return (0);
-    if (data->stack_a_count != 0)
-    {
-        i = data->stack_a_count + 1;
-        while (--i)
-            data->stack_a[i] = data->stack_a[i - 1];
-    }
-    data->stack_a[0] = data->stack_b[0];
-    i = -1;
-    while (++i < data->stack_b_count - 1)
-        data->stack_b[i] = data->stack_b[i + 1];
-    data->stack_a_count += 1;
-    data->stack_b_count -= 1;
-    printf("pa\n");
-    return (0);
-}
-int pb(t_data *data)
-{
-    int        i;
-
-    if (data->stack_a_count == 0)
-        return (0);
-    if (data->stack_b_count != 0)
-    {
-        i = data->stack_b_count + 1;
-        while (--i)
-            data->stack_b[i] = data->stack_b[i - 1];
-    }
-    data->stack_b[0] = data->stack_a[0];
-    i = -1;
-    while (++i < data->stack_b_count - 1)
-        data->stack_a[i] = data->stack_a[i + 1];
-    data->stack_a_count -= 1;
-    data->stack_b_count += 1;
-    printf("pb\n");
-    return (0);
-}
-
-
 int	rrr(t_data *data, int c)
 {
 	if (data->stack_a_count <= 2 || data->stack_b_count <= 2)
@@ -181,3 +133,127 @@ int	rrb(t_data *data, int c)
 		printf("rra\n");
 	return (0);
 }
+
+
+
+//functions to test...
+// int    pa(t_data *data)
+// {
+//     int        i;
+
+//     if (data->stack_b_count == 0)
+//         return (0);
+//     if (data->stack_a_count != 0)
+//     {
+//         i = data->stack_a_count + 1;
+//         while (--i)
+//             data->stack_a[i] = data->stack_a[i - 1];
+//     }
+//     data->stack_a[0] = data->stack_b[0];
+//     i = -1;
+//     while (++i < data->stack_b_count - 1)
+//         data->stack_b[i] = data->stack_b[i + 1];
+//     data->stack_a_count += 1;
+//     data->stack_b_count -= 1;
+//     printf("pa\n");
+//     return (0);
+// }
+// int pb(t_data *data)
+// {
+//     int        i;
+
+//     if (data->stack_a_count == 0)
+//         return (0);
+//     if (data->stack_b_count != 0)
+//     {
+//         i = data->stack_b_count + 1;
+//         while (--i)
+//             data->stack_b[i] = data->stack_b[i - 1];
+//     }
+//     data->stack_b[0] = data->stack_a[0];
+//     i = -1;
+//     while (++i < data->stack_a_count - 1)
+//         data->stack_a[i] = data->stack_a[i + 1];
+//     data->stack_a_count -= 1;
+//     data->stack_b_count += 1;
+//     printf("pb\n");
+//     return (0);
+// }
+
+
+void	continue_pb(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	data->stack_a_tmp = data->stack_b[i];
+	data->stack_b[i] = data->stack_a[i];
+	i++;
+	while (i <= data->stack_b_count)
+	{
+		data->stack_b_tmp = data->stack_b[i];
+		data->stack_b[i] = data->stack_a_tmp;
+		data->stack_a_tmp = data->stack_b_tmp;
+		i++;
+	}
+	data->stack_b[i] = data->stack_a_tmp;
+	i = 0;
+	while (i < data->stack_a_count)
+	{
+		data->stack_a[i] = data->stack_a[i + 1];
+		i++;
+	}
+}
+
+int	pb(t_data *data, int i)
+{
+	data->stack_b_tmp = INT_MAX;
+	if (data->stack_a_count == 0)
+		return (0);
+	continue_pb(data);
+	data->stack_b_count++;
+	data->stack_a_count--;
+	data->stack_a_smallest = INT_MAX;
+	data->stack_b_tmp = INT_MAX;
+	smallest_largest(data);
+	if (i == 1)
+		printf("pb\n");
+	return (0);
+}
+
+// void	continue_pa(t_lists *lists)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	lists->list_a.temp = lists->list_a.list[i];
+// 	lists->list_a.list[i] = lists->list_b.list[i];
+// 	i++;
+// 	while (i <= lists->list_a.nbargs)
+// 	{
+// 		lists->list_b.temp = lists->list_a.list[i];
+// 		lists->list_a.list[i] = lists->list_a.temp;
+// 		lists->list_a.temp = lists->list_b.temp;
+// 		i++;
+// 	}
+// 	i = 0;
+// 	while (i <= lists->list_b.nbargs)
+// 	{
+// 		lists->list_b.list[i] = lists->list_b.list[i + 1];
+// 		i++;
+// 	}
+// }
+
+// int	pa(t_lists *lists, int i)
+// {
+// 	if (lists->list_b.nbargs == 0)
+// 		return (0);
+// 	continue_pa(lists);
+// 	lists->list_a.nbargs++;
+// 	lists->list_b.nbargs--;
+// 	lists->list_a.smallest = INT_MAX;
+// 	get_extreme(lists);
+// 	if (i == 1)
+// 		printf("pa\n");
+// 	return (0);
+// }
