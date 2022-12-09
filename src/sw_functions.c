@@ -221,39 +221,39 @@ int	pb(t_data *data, int i)
 	return (0);
 }
 
-// void	continue_pa(t_lists *lists)
-// {
-// 	int	i;
+void	continue_pa(t_data *data)
+{
+	int	i;
 
-// 	i = 0;
-// 	lists->list_a.temp = lists->list_a.list[i];
-// 	lists->list_a.list[i] = lists->list_b.list[i];
-// 	i++;
-// 	while (i <= lists->list_a.nbargs)
-// 	{
-// 		lists->list_b.temp = lists->list_a.list[i];
-// 		lists->list_a.list[i] = lists->list_a.temp;
-// 		lists->list_a.temp = lists->list_b.temp;
-// 		i++;
-// 	}
-// 	i = 0;
-// 	while (i <= lists->list_b.nbargs)
-// 	{
-// 		lists->list_b.list[i] = lists->list_b.list[i + 1];
-// 		i++;
-// 	}
-// }
+	i = 0;
+	data->stack_a_tmp = data->stack_a[i];
+	data->stack_a[i] = data->stack_b[i];
+	i++;
+	while (i <= data->stack_a_count)
+	{
+		data->stack_b_tmp = data->stack_a[i];
+		data->stack_a[i] = data->stack_a_tmp;
+		data->stack_a_tmp = data->stack_b_tmp;
+		i++;
+	}
+	i = 0;
+	while (i <= data->stack_b_count)
+	{
+		data->stack_b[i] = data->stack_b[i + 1];
+		i++;
+	}
+}
 
-// int	pa(t_lists *lists, int i)
-// {
-// 	if (lists->list_b.nbargs == 0)
-// 		return (0);
-// 	continue_pa(lists);
-// 	lists->list_a.nbargs++;
-// 	lists->list_b.nbargs--;
-// 	lists->list_a.smallest = INT_MAX;
-// 	get_extreme(lists);
-// 	if (i == 1)
-// 		printf("pa\n");
-// 	return (0);
-// }
+int	pa(t_data *data, int i)
+{
+	if (data->stack_b_count == 0)
+		return (0);
+	continue_pa(data);
+	data->stack_a_count++;
+	data->stack_b_count--;
+	data->stack_a_smallest = INT_MAX;
+	smallest_largest(data);
+	if (i == 1)
+		printf("pa\n");
+	return (0);
+}

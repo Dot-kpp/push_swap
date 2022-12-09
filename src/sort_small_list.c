@@ -31,8 +31,8 @@ void	list_of_two(t_data *data)
 
 int list_of_three(t_data *data)
 {
-	//  while (check_if_sorted(data) == 1)
-	//  {
+	 while (check_if_sorted(data) == 1)
+	 {
 		if (data->stack_a[0] != data->stack_a_smallest)
 		{
 			sa(data, 1);
@@ -45,7 +45,7 @@ int list_of_three(t_data *data)
 		{	
 			rra(data, 1);
 		}
-	//  }
+	 }
 	return (0);
 }
 
@@ -64,7 +64,6 @@ int list_of_three(t_data *data)
 int sort_small_list(t_data *data)
 {
 	init_small(data);
-	printf("%d", data->stack_b[0]);
 	if (data->stack_a_count == 2)
 	{
         list_of_two(data);
@@ -77,33 +76,9 @@ int sort_small_list(t_data *data)
 	}	
 	else if (data->stack_a_count == 5)
 	{
-		int i = 0;
-		int j = 0;
 		pb(data, 1);
 		pb(data, 1);
-		// list_of_three(data);
-		if (data->stack_a[0] != data->stack_a_smallest)
-		{
-			sa(data, 1);
-		}
-		if (data->stack_a[0] == data->stack_a_largest)
-		{	
-			ra(data, 1);
-		}
-		if (data->stack_a[1] == data->stack_a_largest)	
-		{	
-			rra(data, 1);
-		}
-		while (i < data->stack_a_count)
-		{
-			printf("%d\n", data->stack_a[i]);
-			i++;
-		}
-		while (j < data->stack_b_count)
-		{
-			printf("%d\n", data->stack_b[j]);
-			j++;
-		}
+		list_of_three(data);
 		// list_of_five(data);
 		// free(data->stack_a);
 		// free(data->stack_b);
