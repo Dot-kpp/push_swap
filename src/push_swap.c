@@ -18,6 +18,7 @@ int main(int argc, char **argv)
     data = get_data();
 	init_data(argc, argv, data);
     sort_small_list(data);
+    sort_big_list(data);
 
     return (0);
 }

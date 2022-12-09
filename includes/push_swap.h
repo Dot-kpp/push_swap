@@ -42,8 +42,11 @@ int     init_small(t_data *data);
 
 //
 int sort_small_list(t_data *data);
+int sort_big_list(t_data *data);
 int check_for_big(t_data *data);
 int check_for_small(t_data *data);
+int check_for_mid(t_data *data);
+int check_if_sorted(t_data *data);
 
 void parsing(int argc, char **argv, t_data *data);
 void index_tmp_stack (t_data *data);

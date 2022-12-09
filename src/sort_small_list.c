@@ -125,11 +125,10 @@ int list_of_five(t_data *data)
 
 int sort_small_list(t_data *data)
 {
-	init_small(data);
-	index_tmp_stack(data);
 	if (data->stack_a_count == 2)
 	{
         list_of_two(data);
+		free(data->stack_a);
 	}
 	else if (data->stack_a_count == 3)
 	{
