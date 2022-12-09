@@ -41,30 +41,19 @@ int check_for_small(t_data *data)
 	}
 	return(smallest);
 }
+
 int check_for_mid(t_data *data)
 {
 	int mid;
 	int	i;
 
-	mid = 0;
-	i = 0;
-	while (i < data->stack_a_count)
-	{
-		if(smallest > data->stack_a[i])
-		{
-			smallest = data->stack_a[i];
-			i++;
-		}	
-		else
-			i++;
-
-	}
+	if (data->tmp_stack_count % 2 == 0)
+		i = data->tmp_stack_count / 2 - 1;
+	else 
+		i = data->tmp_stack_count / 2 + 1;
+	mid = data->tmp_stack[i];
 	return(mid);
 }
-
-
-
-
 
 int check_if_sorted(t_data *data)
 {
@@ -78,7 +67,6 @@ int check_if_sorted(t_data *data)
 		else
 			return (1);
 	}
-	printf("List sorted!\n");
 	return (0);
 }
 
@@ -93,7 +81,6 @@ void	list_of_two(t_data *data)
 		free(data->stack_a);
 		exit (0);
 }
-
 
 int list_of_three(t_data *data)
 {
@@ -124,8 +111,10 @@ int list_of_five(t_data *data)
 	{
 		if (data->stack_a[0] == check_for_small(data))
 			pb(data, 1);
-		else
+		else if (data->stack_a[0] <= data->tmp_stack[3])
 			ra(data, 1);
+		else 
+			rra(data, 1);
 	}
 	list_of_three(data);
 	pa(data, 1);
@@ -137,6 +126,7 @@ int list_of_five(t_data *data)
 int sort_small_list(t_data *data)
 {
 	init_small(data);
+	index_tmp_stack(data);
 	if (data->stack_a_count == 2)
 	{
         list_of_two(data);

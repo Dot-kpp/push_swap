@@ -66,14 +66,15 @@ int init_small(t_data *data)
 void index_tmp_stack (t_data *data)
 {
 	int i;
-
+	
 	i = 0;
-	data->tmp_stack[0] = check_for_small(data);
+	data->tmp_stack = malloc(data->stack_a_count * sizeof(int));
 	while (i < data->stack_a_count)
 	{
 		if (data->stack_a[i] > data->tmp_stack[i])
 		{
-			data->tmp_stack[i] == data->stack_a[i];
+			data->tmp_stack[i] = data->stack_a[i];
+			data->tmp_stack_count++;
 			i++;
 		}
 	}
