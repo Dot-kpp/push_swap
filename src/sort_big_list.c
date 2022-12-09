@@ -4,24 +4,29 @@
 
 int sort_hundred(t_data *data)
 {
-	// int i;
-	while(data->stack_a_count != 0)
+	int i = 0;
+
+	while(check_if_sorted(data) == 1)
 	{
-		if (data->stack_a[0] == check_for_small(data))
-			pb(data, 1);
-		else if (data->stack_a[0] >= check_for_mid(data))
-			rra(data, 1);
-		else
-			ra(data, 1);
-	}	
-	// i = 0;
-	// while(check_if_sorted(data) == 1)
-	// {
-	// 	if (data->stack_a[i] <= data->tmp_stack[10])
-	// 	{
-	// 		pa(data, 1);
-	// 	}
-	// }
+
+		while(data->stack_a_count != 0)
+		{
+			if (data->stack_a[0] == check_for_small(data))
+				pb(data, 1);
+			else if (data->stack_a[0] >= check_for_mid(data))
+				rra(data, 1);
+			else
+				ra(data, 1);
+		}	
+		while(data->stack_b_count != 0)
+			pa(data, 1);
+	}
+	while(i < data->stack_a_count)
+	{
+		printf("a = %d   ", data->stack_a[i]);
+		printf(" / %d\n", data->tmp_stack[i]);
+		i++;
+	}
 	return(0);
 }
 

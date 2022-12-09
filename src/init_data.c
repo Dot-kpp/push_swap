@@ -34,8 +34,9 @@ void	init_data(int argc, char **argv, t_data *data)
 	data->stack_b_count = 0;
 	data->stack_a_smallest = INT_MAX;
 	data->stack_a_largest = INT_MIN;
-	// data->stack_a = NULL;
-	// data->stack_b = NULL;
+	data->stack_a = NULL;
+	data->stack_b = NULL;
+	data->tmp_stack = NULL;
 	parsing(argc, argv, data);
 }
 
@@ -93,7 +94,10 @@ void index_tmp_stack (t_data *data)
 	int i;
 
 	i = 1;
-	data->tmp_stack = malloc(data->stack_a_count * sizeof(int));
+	// data->tmp_stack = malloc(data->stack_a_count * sizeof(int) - 1);
+	data->tmp_stack = ft_calloc(data->stack_a_count - 1, sizeof(int));
+	if (!data->tmp_stack)
+		exit (1);
 	data->tmp_stack[0] = check_for_small(data);
 	data->tmp_stack_count = 1;
 	while (i < data->stack_a_count)
