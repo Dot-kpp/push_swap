@@ -56,8 +56,8 @@ int	smallest_largest(t_data *data)
 int init_small(t_data *data)
 {
 	data->stack_b = ft_calloc(data->stack_a_count, sizeof(int));
-		if (!data->stack_b)
-			return (1);
+	if (!data->stack_b)
+		return (1);
 	data->stack_a_smallest = INT_MAX;
 	smallest_largest(data);
 	return(0);
