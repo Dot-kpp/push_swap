@@ -134,53 +134,6 @@ int	rrb(t_data *data, int c)
 	return (0);
 }
 
-
-
-//functions to test...
-// int    pa(t_data *data)
-// {
-//     int        i;
-
-//     if (data->stack_b_count == 0)
-//         return (0);
-//     if (data->stack_a_count != 0)
-//     {
-//         i = data->stack_a_count + 1;
-//         while (--i)
-//             data->stack_a[i] = data->stack_a[i - 1];
-//     }
-//     data->stack_a[0] = data->stack_b[0];
-//     i = -1;
-//     while (++i < data->stack_b_count - 1)
-//         data->stack_b[i] = data->stack_b[i + 1];
-//     data->stack_a_count += 1;
-//     data->stack_b_count -= 1;
-//     printf("pa\n");
-//     return (0);
-// }
-// int pb(t_data *data)
-// {
-//     int        i;
-
-//     if (data->stack_a_count == 0)
-//         return (0);
-//     if (data->stack_b_count != 0)
-//     {
-//         i = data->stack_b_count + 1;
-//         while (--i)
-//             data->stack_b[i] = data->stack_b[i - 1];
-//     }
-//     data->stack_b[0] = data->stack_a[0];
-//     i = -1;
-//     while (++i < data->stack_a_count - 1)
-//         data->stack_a[i] = data->stack_a[i + 1];
-//     data->stack_a_count -= 1;
-//     data->stack_b_count += 1;
-//     printf("pb\n");
-//     return (0);
-// }
-
-
 void	continue_pb(t_data *data)
 {
 	int	i;

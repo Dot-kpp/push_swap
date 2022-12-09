@@ -19,6 +19,7 @@ typedef struct s_data
     int     *stack_b;
     int     stack_b_count;
     int     stack_b_tmp;
+    int     *tmp_stack;
     char	*errorlog;
 	int		err_no;
 
@@ -40,6 +41,8 @@ int     init_small(t_data *data);
 
 //
 int sort_small_list(t_data *data);
+int check_for_big(t_data *data);
+int check_for_small(t_data *data);
 
 void parsing(int argc, char **argv, t_data *data);
 
