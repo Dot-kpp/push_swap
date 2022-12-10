@@ -10,6 +10,7 @@
 typedef struct s_data
 {
     int     index;
+    int     chunk_size;
     int     *stack_a;
     int     stack_a_count;
     int     stack_a_tmp;

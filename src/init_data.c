@@ -72,10 +72,10 @@ void sort_index (t_data *data)
 	int j;
 	int tmp;
 
-	i = 1;
+	i = 0;
 	while(i < data->tmp_stack_count)
 	{
-		j = 1;
+		j = 0;
 		while(j < data->tmp_stack_count)
 		{
 			if(data->tmp_stack[j] > data->tmp_stack[j + 1])
@@ -93,13 +93,12 @@ void index_tmp_stack (t_data *data)
 {
 	int i;
 
-	i = 1;
+	i = 0;
 	// data->tmp_stack = malloc(data->stack_a_count * sizeof(int) - 1);
-	data->tmp_stack = ft_calloc(data->stack_a_count - 1, sizeof(int));
+	data->tmp_stack = ft_calloc(data->stack_a_count, sizeof(int));
 	if (!data->tmp_stack)
 		exit (1);
-	data->tmp_stack[0] = check_for_small(data);
-	data->tmp_stack_count = 1;
+	data->tmp_stack_count = 0;
 	while (i < data->stack_a_count)
 	{
 			data->tmp_stack[i] = data->stack_a[i];

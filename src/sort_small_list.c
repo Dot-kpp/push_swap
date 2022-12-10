@@ -50,7 +50,7 @@ int check_for_mid(t_data *data)
 	if (data->tmp_stack_count % 2 == 0)
 		i = data->tmp_stack_count / 2 - 1;
 	else 
-		i = data->tmp_stack_count / 2 + 1;
+		i = data->tmp_stack_count / 2;
 	mid = data->tmp_stack[i];
 	return(mid);
 }
@@ -97,7 +97,7 @@ int list_of_three(t_data *data)
 		{	
 			rra(data, 1);
 		}
-		if (data->stack_a[0] != data->stack_a_smallest && data->stack_a[1] == data->stack_a_smallest)
+		if (data->stack_a[0] != check_for_small(data) && data->stack_a[1] == check_for_small(data))
 		{
 			sa(data, 1);
 		}
@@ -111,15 +111,29 @@ int list_of_five(t_data *data)
 	{
 		if (data->stack_a[0] == check_for_small(data))
 			pb(data, 1);
-		else if (data->stack_a[0] <= data->tmp_stack[3])
-			ra(data, 1);
-		else 
+		else if (data->stack_a[1] == check_for_small(data))
+		{
+			sa(data, 1);
+			pb(data, 1);
+		}
+		else if (data->stack_a[0] >= check_for_mid(data))
 			rra(data, 1);
+		else 
+			ra(data, 1);
 	}
 	list_of_three(data);
 	pa(data, 1);
 	if (data->stack_b_count != 0)
 		pa(data, 1);
+	// int i = 0;
+	// while (i < data->stack_a_count)
+	// {
+	// 	printf("a = %d\n", data->stack_a[i]);
+	// 	printf("mid = %d\n", check_for_mid(data));
+	// 	printf("%d / %d\n",i , data->tmp_stack[i]);
+	// 	i++;
+	// }
+	
 	return(0);
 }
 

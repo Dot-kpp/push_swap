@@ -40,7 +40,7 @@ int	ra(t_data *data, int c)
 	int	i;
 
 	i = 0;
-	if (data->stack_a_count <= 2)
+	if (data->stack_a_count < 2)
 		return (0);
 	data->stack_b_tmp = data->stack_a[i];
 	while (i < data->stack_a_count)
@@ -88,7 +88,7 @@ int	rra(t_data *data, int c)
 {
 	int	i;
 
-	if (data->stack_a_count <= 2)
+	if (data->stack_a_count < 2)
 		return (0);
 	i = data->stack_a_count - 1;
 	data->stack_a_tmp = data->stack_a[i];
