@@ -26,6 +26,7 @@ void parsing(int argc, char **argv, t_data *data)
 	smallest_largest(data);
 	init_small(data);
 	index_tmp_stack(data);
+	index_a(data);
 }
 
 void	init_data(int argc, char **argv, t_data *data)
@@ -88,7 +89,14 @@ void sort_index (t_data *data)
 		}
 		i++;
 	}
+	i = 0;
+	while (i < data->tmp_stack_count)
+	{
+		data->tmp_stack[i] = i;
+		i++;
+	}
 }
+
 void index_tmp_stack (t_data *data)
 {
 	int i;
@@ -106,4 +114,37 @@ void index_tmp_stack (t_data *data)
 			i++;
 	}
 	sort_index(data);
+}
+
+void index_a(t_data *data)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	data->stack_c = calloc(sizeof(char **), data->stack_a_count);
+
+		while(i < data->stack_a_count)
+		{
+			if(data->stack_a[i] == check_for_small(data))
+			{
+				data->stack_a[i] = INT_MAX;
+				data->stack_c[i] = j;
+				j++;
+				if (j == data->stack_a_count)
+					break;
+				i = -1;
+			}
+			i++;
+		}
+	
+	free(data->stack_a);
+	data->stack_a = calloc(sizeof(char **), data->stack_a_count);
+	i = 0;
+	while( i < data->stack_a_count)
+	{
+		data->stack_a[i] = data->stack_c[i];
+		i++;
+	}
 }

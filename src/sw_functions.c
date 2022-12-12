@@ -75,7 +75,7 @@ int	rb(t_data *data, int c)
 
 int	rr(t_data *data, int c)
 {
-	if (data->stack_a_count <= 2 || data->stack_b_count <= 2)
+	if (data->stack_a_count < 2 || data->stack_b_count < 2)
 		return (0);
 	ra(data, 0);
 	rb(data, 0);
@@ -105,7 +105,7 @@ int	rra(t_data *data, int c)
 
 int	rrr(t_data *data, int c)
 {
-	if (data->stack_a_count <= 2 || data->stack_b_count <= 2)
+	if (data->stack_a_count < 2 || data->stack_b_count < 2)
 		return (0);
 	rra(data, 1);
 	rrb(data, 1);
@@ -130,7 +130,7 @@ int	rrb(t_data *data, int c)
 	}
 	data->stack_b[i] = data->stack_b_tmp;
 	if (c == 1)
-		printf("rra\n");
+		printf("rrb\n");
 	return (0);
 }
 

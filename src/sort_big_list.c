@@ -2,7 +2,45 @@
 
 #include "../includes/push_swap.h"
 
-void savior_function(t_data *data)
+void saviour_two(t_data *data, int i, int j)
+{
+	if (data->stack_b[i] > check_for_mid_b(data))
+			{
+				while (data->stack_b[0] != data->tmp_stack[data->tmp_stack_count - j])
+				{
+					rrb(data, 1);
+					printf("stack b 0 = %d\n", data->stack_b[0]);
+					printf("temp mid = %d\n", data->tmp_stack[data->tmp_stack_count - j]);
+					printf("checkformid = %d\n", check_for_mid(data));
+					printf("j = %d\n", j);
+					int k = 0;
+					while (k < data->tmp_stack_count)
+					{
+						printf("%d\n", data->tmp_stack[k]);
+						k++;
+					}
+				}
+			}
+	else if(data->stack_b[i] <= check_for_mid_b(data))
+	{
+		while (data->stack_b[0] != data->tmp_stack[data->tmp_stack_count - j])
+			{
+					rb(data, 1);
+					// printf("stack b 0 = %d\n", data->stack_b[0]);
+					// printf("temp mid = %d\n", data->tmp_stack[data->tmp_stack_count - j]);
+					// printf("checkformid = %d\n", check_for_mid_b(data));
+					// printf("i = %d\n", i);
+					// int k = 0;
+					// while (k < data->stack_a_count)
+					// {
+					// 	printf("%d\n", data->stack_a[k]);
+					// 	k++;
+					// }
+				}
+	}	
+}
+
+int savior_function(t_data *data)
 {
 	int i;
 	int j;
@@ -15,24 +53,16 @@ void savior_function(t_data *data)
 		{
 			pa(data, 1);
 			pa(data, 1);
+			return(0);
 		}
 		while (data->stack_b[i] != data->tmp_stack[data->tmp_stack_count - j])
 			i++;
-
-		if (i > check_for_mid(data))
-		{
-			while (data->stack_b[0] != data->tmp_stack[data->tmp_stack_count - j])
-				rrb(data, 1);
-		}
-		else if (i <= check_for_mid(data))
-		{
-			while (data->stack_b[0] != data->tmp_stack[data->tmp_stack_count - j])
-				rb(data, 1);
-		}
+		saviour_two(data, i, j);
 		pa(data, 1);
 		i = 0;
 		j++;
 	}
+	return(0);
 }
 
 
@@ -56,9 +86,9 @@ void sort_direction(t_data *data, int v, int w)
 	j = 0;
 	while (j <= data->stack_a_count)
 	{
-		if (data->stack_b[0] > check_for_mid(data))
+		if (data->stack_b[0] > check_for_mid_b(data))
 			rb(data, 1);
-		else if (data->stack_b[data->stack_b_count - 1] < check_for_mid(data))
+		else if (data->stack_b[data->stack_b_count - 1] < check_for_mid_b(data))
 			rrb(data, 1);
 		if (data->stack_b[1] < data->stack_b[0])
 		{
@@ -81,8 +111,8 @@ int sort_big_list(t_data *data)
 
 	v = 0;
 	w = 0;
-	v = check_for_mid(data);
-	w = check_for_mid(data);
+	v = check_for_mid_a(data);
+	w = check_for_mid_a(data);
 
 	define_chunk_size(data);
 

@@ -55,6 +55,42 @@ int check_for_mid(t_data *data)
 	return(mid);
 }
 
+int check_for_mid_b(t_data *data)
+{
+	int b_mid;
+	int	i;
+
+	if (data->stack_b_count % 2 == 0)
+		i = data->stack_b_count / 2 - 1;
+	else 
+		i = data->stack_b_count / 2;
+	b_mid = data->stack_b[i];
+	return(b_mid);
+}
+int check_for_mid_a(t_data *data)
+{
+	int a_mid;
+	int	i;
+
+	if (data->stack_a_count % 2 == 0)
+		i = data->stack_a_count / 2 - 1;
+	else 
+		i = data->stack_a_count / 2;
+	a_mid = data->stack_a[i];
+	return(a_mid);
+}
+
+int get_mid_size(t_data *data)
+{
+	int	i;
+
+	if (data->tmp_stack_count % 2 == 0)
+		i = data->tmp_stack_count / 2 - 1;
+	else 
+		i = data->tmp_stack_count / 2;
+	return(i);
+}
+
 int check_if_sorted(t_data *data)
 {
 	int	i;
@@ -72,7 +108,7 @@ int check_if_sorted(t_data *data)
 
 void	list_of_two(t_data *data)
 {
-	if (data->stack_a_smallest == data->stack_a[0])
+	if (check_for_small(data) == data->stack_a[0])
 		{
 			free(data->stack_a);
 			already_sorted();
@@ -116,8 +152,11 @@ int list_of_five(t_data *data)
 			sa(data, 1);
 			pb(data, 1);
 		}
-		else if (data->stack_a[0] >= check_for_mid(data))
-			rra(data, 1);
+		// else if (data->stack_a[0] >= get_mid_size(data))
+		// {
+		// 	while(data->stack_a[0] > get_mid_size(data))
+		// 		rra(data, 1);
+		// }
 		else 
 			ra(data, 1);
 	}
