@@ -18,6 +18,7 @@ void savior_function(t_data *data)
 		}
 		while (data->stack_b[i] != data->tmp_stack[data->tmp_stack_count - j])
 			i++;
+
 		if (i > check_for_mid(data))
 		{
 			while (data->stack_b[0] != data->tmp_stack[data->tmp_stack_count - j])
@@ -28,6 +29,9 @@ void savior_function(t_data *data)
 			while (data->stack_b[0] != data->tmp_stack[data->tmp_stack_count - j])
 				rb(data, 1);
 		}
+		pa(data, 1);
+		i = 0;
+		j++;
 	}
 }
 
