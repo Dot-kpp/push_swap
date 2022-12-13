@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpilotte <jpilotte@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/13 15:58:52 by jpilotte          #+#    #+#             */
+/*   Updated: 2022/12/13 15:58:52 by jpilotte         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -40,9 +52,13 @@ void	init_data();
 int	    smallest_largest();
 void	quoted_args(char **argv, t_data *data);
 int	    no_quote_args(int argc, char **argv, t_data *data);
+void    keep_check_no_quotes(t_data *data, int j, int *list);
+int	check_minus_no_quotes(char **list, int i, int j, t_data *data);
+int	input_valid_num_no_quotes(t_data *data, char **argv, int i);
+int	dubs_no_quotes(t_data *data);
 int     init_small(t_data *data);
 
-//
+//utils
 int sort_small_list(t_data *data);
 int sort_big_list(t_data *data);
 int check_for_big(t_data *data);
@@ -52,10 +68,14 @@ int check_if_sorted(t_data *data);
 int get_mid_size(t_data *data);
 int check_for_mid_a(t_data *data);
 int check_for_mid_b(t_data *data);
+void	define_chunk_size(t_data *data);
 
 void parsing(int argc, char **argv, t_data *data);
+
+//indexing
 void index_tmp_stack (t_data *data);
 void index_a(t_data *data);
+void sort_index (t_data *data);
 
 //moves
 int	sa(t_data *data, int i);
@@ -69,5 +89,9 @@ int	rrr(t_data *data, int c);
 int	rrb(t_data *data, int c);
 int pa(t_data *data, int i);
 int pb(t_data *data, int i);
+
+//free
+int	free_list(int i, char **list);
+int	free_n_exit(t_data *data, int *list);
 
 #endif  
